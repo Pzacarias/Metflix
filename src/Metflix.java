@@ -37,6 +37,8 @@ public class Metflix {
         // re instanciar
         actor = new Actor(); // Creo un nuevo actor, pero referenciado con la variable actor
         actor.nombre = "Christian Bale";
+         
+        //
 
         batman.actores.add(actor);
 
