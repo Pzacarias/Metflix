@@ -3,184 +3,154 @@ import java.util.List;
 
 public class Metflix {
 
-    public List<Pelicula> peliculas = new ArrayList<>();
-    public List<Serie> series = new ArrayList<>();
+    private List<Pelicula> peliculas = new ArrayList<>();
+    private List<Serie> series = new ArrayList<>();
 
-    // Metodo que inicializa el catalogo cno las pelis/series qeu querramos
+   public List<Pelicula> getPeliculas(){
+       return this.peliculas;
+   }
+   public void setPeliculas(List<Pelicula> peliculas){
+       this.peliculas = peliculas;
+   }
+
+   public List<Serie> getSeries(){
+       return this.series;
+   }
+   public void setSeries(List<Serie> series){
+       this.series = series;
+   }
+
     public void inicializarCatalogo() {
+        
+        Pelicula titanic; 
+        titanic = new Pelicula(); 
 
-        // Pelis: Titanic, Batman: El caballero de la noche
-        Pelicula titanic; // declara una variable que apuntara a una Pelicula
-        titanic = new Pelicula(); // Estas ultimoas 2 lineas: Pelicula titanic = new Pelicula();
-
-        titanic.nombre = "Titanic";
-        titanic.añoLanzamiento = 1997;
-        titanic.duracion = 210; // 3hs 30
-
-        Actor actor = new Actor();
-        actor.nombre = "Leo DiCaprio";
-
-        // Agrego a la lista de actores del objeto titanic
-        titanic.actores.add(actor); // metodo Add -> agregar a una lista
-
-        // Recien ahora estoy agregando a Titanic al catalogo
+        titanic.setNombre("Titanic");
+        titanic.setAñoLanzamiento(1997);
+        titanic.setDuracion (210);      
         this.peliculas.add(titanic);
 
-        // Otra Peli
+        Actor actor = new Actor();
+        actor.setNombre ("Leo DiCaprio");
+        titanic.getActores().add(actor);
+       
+        
         Pelicula batman = new Pelicula();
-        batman.nombre = "Batman: el caballero de la nohe";
-        batman.añoLanzamiento = 2008;
-        batman.duracion = 152;
-
-        // No voy a declarar otra variable actor, voy a reusar
-        // siempre primero antes de reusar
-        // re instanciar
-        actor = new Actor(); // Creo un nuevo actor, pero referenciado con la variable actor
-        actor.nombre = "Christian Bale";
-         
-        //
-
-        batman.actores.add(actor);
-
+        batman.setNombre ("Batman: el caballero de la noche");
+        batman.setAñoLanzamiento (2008);
+        batman.setDuracion (152);
         this.peliculas.add(batman);
 
-        // How I met your mother. Serie
+        actor = new Actor(); 
+        actor.setNombre ("Christian Bale");
+        batman.getActores().add(actor);
+
 
         Serie howIMetYM = new Serie();
-        howIMetYM.nombre = "How I met your mother";
-        howIMetYM.añoLanzamiento = 2005;
+        howIMetYM.setNombre ("How I met your mother");
+        howIMetYM.setAñoLanzamiento (2005);
 
         actor = new Actor();
-        actor.nombre = "Neil Patrick Harris";
-
-        howIMetYM.actores.add(actor);
+        actor.setNombre ("Neil Patrick Harris");
+        howIMetYM.getActores().add(actor);
 
         actor = new Actor();
-        actor.nombre = "Cobie Smulders";
+        actor.setNombre("Cobie Smulders");
+        howIMetYM.getActores().add(actor);
 
-        howIMetYM.actores.add(actor);
-
-        // T5:E11
-        // creo la temporada
         Temporada temporada = new Temporada();
-        temporada.numero = 5;
+        temporada.setNumero(5);
 
-        // Creo el episodio
         Episodio episodio = new Episodio();
-        episodio.nombre = "The last cigarrette";
-        episodio.numero = 11;
-
-        // vinculo temporada con episodio
-        temporada.episodios.add(episodio);
+        episodio.setNombre ("The last cigarrette");
+        episodio.setNumero (11);
+        temporada.getEpisodios().add(episodio);
 
         episodio = new Episodio();
-        episodio.nombre = "Definitions";
-        episodio.numero = 1;
+        episodio.setNombre ("Definitions");
+        episodio.setNumero (1);
+        temporada.getEpisodios().add(episodio);
 
-        temporada.episodios.add(episodio);
+        howIMetYM.getTemporadas().add(temporada);
 
-        // Agrego la temporada
-        howIMetYM.temporadas.add(temporada);
-
-        // T3
-        // creo la temporada
+ 
         temporada = new Temporada();
-        temporada.numero = 3;
-
-        // Creo el episodio
+        temporada.setNumero (3);
+      
         episodio = new Episodio();
-        episodio.nombre = "Wait for it";
-        episodio.numero = 1;
-
-        // vinculo temporada con episodio
-        temporada.episodios.add(episodio);
+        episodio.setNombre ("Wait for it");
+        episodio.setNumero (1);  
+        temporada.getEpisodios().add(episodio);
 
         episodio = new Episodio();
-        episodio.nombre = "Little Boys";
-        episodio.numero = 4;
+        episodio.setNombre ("Little Boys");
+        episodio.setNumero (4);
+        temporada.getEpisodios().add(episodio);
 
-        temporada.episodios.add(episodio);
+        howIMetYM.getTemporadas().add(temporada);
 
-        // Agrego la temporada
-        howIMetYM.temporadas.add(temporada);
-
-        // Aca esta toda la serie con 2 temporadas y cada una con 2 episodios.
         this.series.add(howIMetYM);
 
         Serie bbt = new Serie();
-        bbt.nombre = "The BigBang Theory";
-        bbt.añoLanzamiento = 2007;
+        bbt.setNombre ("The BigBang Theory");
+        bbt.setAñoLanzamiento (2007);
 
         actor = new Actor();
-        actor.nombre = "Kaley Cuoco";
+        actor.setNombre ("Kaley Cuoco");
+        bbt.getActores().add(actor);
 
-        bbt.actores.add(actor);
-
-        // creo la temporada
         temporada = new Temporada();
-        temporada.numero = 1;
-
-        // Creo el episodio
-        episodio = new Episodio();
-        episodio.nombre = "Pilot";
-        episodio.numero = 1;
-
-        // vinculo temporada con episodio
-        temporada.episodios.add(episodio);
+        temporada.setNumero (1);
 
         episodio = new Episodio();
-        episodio.nombre = "The Cooper-Hofstadter Polarizatio";
+        episodio.setNombre ("Pilot");
+        episodio.setNumero (1);
+        temporada.getEpisodios().add(episodio);
 
-        temporada.episodios.add(episodio);
+        episodio = new Episodio();
+        episodio.setNombre ("The Cooper-Hofstadter Polarization");
+        temporada.getEpisodios().add(episodio);
 
-        // Agrego la temporada
-        bbt.temporadas.add(temporada);
-
+        bbt.getTemporadas().add(temporada);
         this.series.add(bbt);
 
         Pelicula elResplandor = new Pelicula();
-        elResplandor.nombre = "El Resplandor";
-        elResplandor.añoLanzamiento = 1980;
-        elResplandor.duracion = 146;
-
-        this.peliculas.add(elResplandor);
+        elResplandor.setNombre ("El Resplandor");
+        elResplandor.setAñoLanzamiento (1980);
+        elResplandor.setDuracion (146);
+        Director director = new Director();
+        director.setNombre("El resplandor");
+        elResplandor.setDirector(director);
+        elResplandor.getDirector().setNombre("Stanley Kucbrick");
 
         actor = new Actor();
-        actor.nombre = "Jack Nicholson";
-        elResplandor.actores.add(actor);
+        actor.setNombre("Jack Nicholson") ;
+        elResplandor.getActores().add(actor);
 
         Pelicula naranja = new Pelicula();
-        naranja.nombre = "La naranja mecánica";
-        naranja.añoLanzamiento = 1971;
-        naranja.director = new Director();
-        naranja.director.nombre = "Stanley Kubrick";
-        naranja.duracion = 137;
+        naranja.setNombre ("La naranja mecánica");
+        naranja.setAñoLanzamiento (1971);
+        director = new Director();
+        director.setNombre("La naranja mecánica");
+        elResplandor.setDirector(director);
+        elResplandor.getDirector().setNombre("Stanley Kucbrick");
 
         this.peliculas.add(naranja);
         actor = new Actor();
-        actor.nombre = "Malcolm McDowell";
-        naranja.actores.add(actor);
+        actor.setNombre ("Malcolm McDowell");
+        naranja.getActores().add(actor);
 
     }
 
  
 
-    // Buscar Serie
+  
     public Serie buscarSerie(String nombreABuscar) {
 
-        // series = | serie1 | serie2 | serie25 | serie40 |
-        // vamos a usar el foreach: que sirve para recorrer listas
-        // este ciclo, tiene una variable, qeu apunta en cada vuelta
-        // a cada elemento de la lista
-        // o sea la primer vez, va a apuntar a serie1, despues a serie2 ddesp
-        // serie25 hasta que termina.
         for (Serie serie : this.series) {
-            // pregunto si el nombre de la serie actual
-            // que estoy recorriendo es la que necesito
-            if (serie.nombre.equals(nombreABuscar))
-                return serie; // devuelvo esta serie.
+            if (serie.getNombre().equals(nombreABuscar))
+                return serie; 
         }
-        // si llego hasta aca, es porque no encontro la serie.
         return null;
 
     }
