@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contenido {
+
+    public Contenido(String nombre, int añoLanzamiento) {
+        this.nombre = nombre;
+        this.añoLanzamiento = añoLanzamiento;
+    }
+  
     private String nombre;
     private  Genero genero;
     private  Idioma idiomaOrigen;

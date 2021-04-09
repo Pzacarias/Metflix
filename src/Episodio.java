@@ -1,4 +1,15 @@
 public class Episodio {
+    
+    public Episodio(int numero, String nombre) {
+        this.numero = numero;
+        this.nombre = nombre;
+    }
+
+    public Episodio(int numero, String nombre, int duracion) {
+        this(numero, nombre); 
+        this.duracion = duracion;
+    }
+
     private int numero;
     private String nombre;
     private int duracion; 

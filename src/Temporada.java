@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Temporada {
+    public Temporada (int numero){
+        this.numero = numero;
+     
+    }
+
     private int numero;
     private String nombre; 
     private List<Episodio> episodios  = new ArrayList<>();

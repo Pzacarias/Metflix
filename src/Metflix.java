@@ -5,156 +5,158 @@ public class Metflix {
 
     private List<Pelicula> peliculas = new ArrayList<>();
     private List<Serie> series = new ArrayList<>();
+    private List<Director> directores = new ArrayList<>();
 
-   public List<Pelicula> getPeliculas(){
-       return this.peliculas;
-   }
-   public void setPeliculas(List<Pelicula> peliculas){
-       this.peliculas = peliculas;
-   }
+    public List<Pelicula> getPeliculas() {
+        return this.peliculas;
+    }
+    public void setPeliculas(List<Pelicula> peliculas) {
+        this.peliculas = peliculas;
+    }
 
-   public List<Serie> getSeries(){
-       return this.series;
-   }
-   public void setSeries(List<Serie> series){
-       this.series = series;
-   }
+    public List<Serie> getSeries() {
+        return this.series;
+    }
+    public void setSeries(List<Serie> series) {
+        this.series = series;
+    }
+
+    public List<Director> getDirectores() {
+        return this.directores;
+    }
+    public void setDirectores(List<Director> directores) {
+        this.directores = directores;
+    }
 
     public void inicializarCatalogo() {
-        
-        Pelicula titanic; 
-        titanic = new Pelicula(); 
 
-        titanic.setNombre("Titanic");
-        titanic.setAñoLanzamiento(1997);
-        titanic.setDuracion (210);      
+        Pelicula titanic;
+        titanic = new Pelicula("Titanic",1997,210);
+        Director director = new Director("James Cameron", 66);
+        titanic.setDirector(new Director("James Cameron", 66));
+
+
+        this.directores.add(director);
+
         this.peliculas.add(titanic);
 
-        Actor actor = new Actor();
-        actor.setNombre ("Leo DiCaprio");
+        Actor actor = new Actor("Leonardo DiCaprio",46);
         titanic.getActores().add(actor);
-       
-        
-        Pelicula batman = new Pelicula();
-        batman.setNombre ("Batman: el caballero de la noche");
-        batman.setAñoLanzamiento (2008);
-        batman.setDuracion (152);
+
+        Pelicula batman = new Pelicula("Batman: el caballero de la noche", 2008,152);
+        batman.setDirector(new Director("Chtistopher Nolan", 50));
         this.peliculas.add(batman);
 
-        actor = new Actor(); 
-        actor.setNombre ("Christian Bale");
+        actor = new Actor("Christian Bale", 47);
         batman.getActores().add(actor);
 
-
-        Serie howIMetYM = new Serie();
-        howIMetYM.setNombre ("How I met your mother");
-        howIMetYM.setAñoLanzamiento (2005);
-
-        actor = new Actor();
-        actor.setNombre ("Neil Patrick Harris");
+        Serie howIMetYM = new Serie("How I met your mother", 2005);
+ 
+        actor = new Actor("Neil Patrick Harris", 47);
         howIMetYM.getActores().add(actor);
 
-        actor = new Actor();
-        actor.setNombre("Cobie Smulders");
+        actor = new Actor("Cobie Smulders", 39);
         howIMetYM.getActores().add(actor);
 
-        Temporada temporada = new Temporada();
-        temporada.setNumero(5);
+        Temporada temporada = new Temporada(5);
 
-        Episodio episodio = new Episodio();
-        episodio.setNombre ("The last cigarrette");
-        episodio.setNumero (11);
+        Episodio episodio = new Episodio(11,"The last cigarette",30);
         temporada.getEpisodios().add(episodio);
 
-        episodio = new Episodio();
-        episodio.setNombre ("Definitions");
-        episodio.setNumero (1);
+        episodio = new Episodio(1, "Definitions", 30);
         temporada.getEpisodios().add(episodio);
 
         howIMetYM.getTemporadas().add(temporada);
 
- 
-        temporada = new Temporada();
-        temporada.setNumero (3);
-      
-        episodio = new Episodio();
-        episodio.setNombre ("Wait for it");
-        episodio.setNumero (1);  
+        temporada = new Temporada(3);
+
+        episodio = new Episodio(1,"Wait for it", 30);
         temporada.getEpisodios().add(episodio);
 
-        episodio = new Episodio();
-        episodio.setNombre ("Little Boys");
-        episodio.setNumero (4);
+        episodio = new Episodio(4,"Little Boys",30);
         temporada.getEpisodios().add(episodio);
 
         howIMetYM.getTemporadas().add(temporada);
 
         this.series.add(howIMetYM);
 
-        Serie bbt = new Serie();
-        bbt.setNombre ("The BigBang Theory");
-        bbt.setAñoLanzamiento (2007);
+        Serie bbt = new Serie("The Big Bang Theory", 2007);
 
-        actor = new Actor();
-        actor.setNombre ("Kaley Cuoco");
+        actor = new Actor("Kaley Cuoco", 35);
         bbt.getActores().add(actor);
 
-        temporada = new Temporada();
-        temporada.setNumero (1);
+        temporada = new Temporada(1);
 
-        episodio = new Episodio();
-        episodio.setNombre ("Pilot");
-        episodio.setNumero (1);
+        episodio = new Episodio(1,"Pilot");
         temporada.getEpisodios().add(episodio);
 
-        episodio = new Episodio();
-        episodio.setNombre ("The Cooper-Hofstadter Polarization");
+        episodio = new Episodio(9, "The Cooper-Hofstadter Polarization");
         temporada.getEpisodios().add(episodio);
 
         bbt.getTemporadas().add(temporada);
         this.series.add(bbt);
 
-        Pelicula elResplandor = new Pelicula();
-        elResplandor.setNombre ("El Resplandor");
-        elResplandor.setAñoLanzamiento (1980);
-        elResplandor.setDuracion (146);
-        Director director = new Director();
-        director.setNombre("El resplandor");
-        elResplandor.setDirector(director);
-        elResplandor.getDirector().setNombre("Stanley Kucbrick");
+        Pelicula elResplandor = new Pelicula("El resplandor",1980,146);
+        elResplandor.setDirector(new Director("Stanley Kubrick", 70));
+        this.directores.add(director);
 
-        actor = new Actor();
-        actor.setNombre("Jack Nicholson") ;
+        actor = new Actor("Jack Nicholson", 83);
         elResplandor.getActores().add(actor);
 
-        Pelicula naranja = new Pelicula();
-        naranja.setNombre ("La naranja mecánica");
-        naranja.setAñoLanzamiento (1971);
-        director = new Director();
-        director.setNombre("La naranja mecánica");
-        elResplandor.setDirector(director);
-        elResplandor.getDirector().setNombre("Stanley Kucbrick");
+        Pelicula naranja = new Pelicula("La naranja mecánica",1971,137);
+        naranja.setDirector(new Director("Stanley Kubrick", 70));
+        this.directores.add(director);
 
         this.peliculas.add(naranja);
-        actor = new Actor();
-        actor.setNombre ("Malcolm McDowell");
+
+        actor = new Actor("Malcolm McDowell",77);
         naranja.getActores().add(actor);
+
+        Serie theOffice = new Serie("The Office",2005);
+
+        actor = new Actor("Steve Carell", 58);
+        theOffice.getActores().add(actor);
+
+        actor = new Actor("John Krasinski", 41);
+        theOffice.getActores().add(actor);
+
+        temporada = new Temporada(1);
+
+        episodio = new Episodio(2,"Diversity day", 23);
+        temporada.getEpisodios().add(episodio);
+
+        episodio = new Episodio(6,"The Alliance", 23);
+        temporada.getEpisodios().add(episodio);
+
+        theOffice.getTemporadas().add(temporada);
+        this.series.add(theOffice);
+
+        Websodio ws = new Websodio(35, "Nombre wesodio en internet", "http://miepisodios.com/websodio.avi");
+        ws.setDuracion(42);
+      
+        temporada.getEpisodios().add(ws);
 
     }
 
- 
-
-  
     public Serie buscarSerie(String nombreABuscar) {
 
         for (Serie serie : this.series) {
             if (serie.getNombre().equals(nombreABuscar))
-                return serie; 
+                return serie;
         }
         return null;
 
     }
 
-    // buscar un director
-    //
+    public Persona buscarDirectores(String nombreDirector) {
+
+        for (Director director : this.directores) {
+            if (director.getNombre() == nombreDirector) {
+                return director;
+            }
+
+        }
+        return null;
+    }
+
 }

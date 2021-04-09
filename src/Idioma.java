@@ -1,4 +1,10 @@
 public class Idioma {
+
+    public Idioma(String nombre, String alfabeto){
+        this.nombre = nombre;
+        this.alfabeto = alfabeto;
+    }
+
     private String nombre;
     private String alfabeto;
 

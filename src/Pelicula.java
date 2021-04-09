@@ -1,6 +1,12 @@
 public class Pelicula extends Contenido {
+    
+    public Pelicula(String nombre, int añoLanzamiento,int duracion) {
+        super(nombre, añoLanzamiento);
+        this.setDuracion(duracion);
+    }
+
     private int duracion; 
-    private Director director = new Director();
+    private Director director;
     private boolean filmadaEnIMAX;
 
     public int getDuracion(){
