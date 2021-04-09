@@ -33,7 +33,7 @@ public class Metflix {
         Pelicula titanic;
         titanic = new Pelicula("Titanic",1997,210);
         Director director = new Director("James Cameron", 66);
-        titanic.setDirector(new Director("James Cameron", 66));
+        titanic.setDirector(director);
 
 
         this.directores.add(director);
